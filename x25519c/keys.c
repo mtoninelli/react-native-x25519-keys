@@ -11,28 +11,28 @@ extern unsigned int base64_encode(const unsigned char *in, unsigned int inlen, c
 
 char *gen_key_pair(unsigned char *rnd)
 {
-    static const unsigned char basepoint[KEY_SIZE] = {9};
-    unsigned char privatekey[KEY_SIZE];
-    unsigned char publickey[KEY_SIZE];
-    char b64_priv[B64_KEY_SIZE];
-    char b64_pub[B64_KEY_SIZE];
-    char *buffer = (char *) malloc(BUFFER_SIZE);
+	static const unsigned char basepoint[KEY_SIZE] = {9};
+	unsigned char privatekey[KEY_SIZE];
+	unsigned char publickey[KEY_SIZE];
+	char b64_priv[B64_KEY_SIZE];
+	char b64_pub[B64_KEY_SIZE];
+	char *buffer = (char *) malloc(BUFFER_SIZE);
 
-    // Generate private key
-    memcpy(privatekey, rnd, KEY_SIZE);
-    privatekey[0]  &= 248;
-    privatekey[31] &= 127;
-    privatekey[31] |= 64;
+	// Generate private key
+	memcpy(privatekey, rnd, KEY_SIZE);
+	privatekey[0]  &= 248;
+	privatekey[31] &= 127;
+	privatekey[31] |= 64;
 
-    // Generate public key
-    curve25519_donna(publickey, privatekey, basepoint);
+	// Generate public key
+	curve25519_donna(publickey, privatekey, basepoint);
 
-    // Encode keys
-    base64_encode(privatekey, KEY_SIZE, b64_priv);
-    base64_encode(publickey, KEY_SIZE, b64_pub);
+	// Encode keys
+	base64_encode(privatekey, KEY_SIZE, b64_priv);
+	base64_encode(publickey, KEY_SIZE, b64_pub);
 
-    // Convert to JSON
-    snprintf(buffer, BUFFER_SIZE, "{\"public_key\":\"%s\",\"private_key\":\"%s\"}", b64_pub, b64_priv);
+	// Convert to JSON
+	snprintf(buffer, BUFFER_SIZE, "{\"public_key\":\"%s\",\"private_key\":\"%s\"}", b64_pub, b64_priv);
 
-    return buffer;
+	return buffer;
 }

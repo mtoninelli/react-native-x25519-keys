@@ -10,4 +10,3 @@ extern char *gen_key_pair(unsigned char *rnd);
 @interface RNX25519Keys : NSObject <RCTBridgeModule>
 
 @end
-  
