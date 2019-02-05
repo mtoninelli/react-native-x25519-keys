@@ -10,15 +10,14 @@ import java.lang.System;
 import java.security.SecureRandom;
 
 public class RNX25519KeysModule extends ReactContextBaseJavaModule {
-	private SecureRandom random;
+	private static final SecureRandom random = new SecureRandom();
+    private static final keySize = 32;
+    private static String genKeyPair(byte[] rnd);
 
 	public RNX25519KeysModule(ReactApplicationContext reactContext) {
 		super(reactContext);
 		System.loadLibrary("keys");
-		random = new SecureRandom();
 	}
-
-	public native String genKeyPair(byte[] rnd);
 
 	@Override
 	public String getName() {
@@ -28,7 +27,7 @@ public class RNX25519KeysModule extends ReactContextBaseJavaModule {
 	@ReactMethod
 	public void GenKeyPair(Promise promise) {
 		try {
-			byte rnd[] = new byte[32];
+			byte rnd[] = new byte[];
 			random.nextBytes(rnd);
 			promise.resolve(genKeyPair(rnd));
 		} catch(Exception e) {
