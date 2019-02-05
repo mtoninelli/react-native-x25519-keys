@@ -11,7 +11,7 @@ import java.security.SecureRandom;
 
 public class RNX25519KeysModule extends ReactContextBaseJavaModule {
 	private static final SecureRandom random = new SecureRandom();
-    private static final keySize = 32;
+    private static final int keySize = 32;
     private static String genKeyPair(byte[] rnd);
 
 	public RNX25519KeysModule(ReactApplicationContext reactContext) {
@@ -27,7 +27,7 @@ public class RNX25519KeysModule extends ReactContextBaseJavaModule {
 	@ReactMethod
 	public void GenKeyPair(Promise promise) {
 		try {
-			byte rnd[] = new byte[];
+			byte rnd[] = new byte[keySize];
 			random.nextBytes(rnd);
 			promise.resolve(genKeyPair(rnd));
 		} catch(Exception e) {
