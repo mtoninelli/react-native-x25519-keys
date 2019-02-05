@@ -1,8 +1,8 @@
 
 {
   "name": "react-native-x25519-keys",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "Cross-platform x25519 key pair generation for React Native",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,8 +10,8 @@
   "keywords": [
     "react-native"
   ],
-  "author": "",
-  "license": "",
+  "author": "info@wirevpn.net",
+  "license": "MIT",
   "peerDependencies": {
     "react-native": "^0.41.2"
   },
