@@ -21,7 +21,8 @@
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 2. Go to `node_modules` ➜ `react-native-x25519-keys` and add `RNX25519Keys.xcodeproj`
 3. In XCode, in the project navigator, select your project. Add `libRNX25519Keys.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-4. Run your project (`Cmd+R`)<
+4. In Xcode, in the project navigator, select your project. Add `$(SRCROOT)/../node_modules/react-native-x25519-keys/ios` to your project's `Build Settings` ➜ `Header Search Paths`
+5. Run your project (`Cmd+R`)<
 
 #### Android
 
