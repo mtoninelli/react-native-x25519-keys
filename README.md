@@ -27,8 +27,8 @@
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.wirevpn.x25519keys.RNX25519KeysPackage;` to the imports at the top of the file
-  - Add `new RNX25519KeysPackage()` to the list returned by the `getPackages()` method
+    - Add `import com.wirevpn.x25519keys.RNX25519KeysPackage;` to the imports at the top of the file
+    - Add `new RNX25519KeysPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
   	include ':react-native-x25519-keys'
