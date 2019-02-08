@@ -15,7 +15,6 @@
 
 ### Manual installation
 
-
 #### iOS
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
@@ -36,9 +35,8 @@
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-x25519-keys')
+    compile project(':react-native-x25519-keys')
   	```
-
 
 ## Usage
 ```javascript
