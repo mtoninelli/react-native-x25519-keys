@@ -11,8 +11,8 @@ import java.security.SecureRandom;
 
 public class RNX25519KeysModule extends ReactContextBaseJavaModule {
 	private static final SecureRandom random = new SecureRandom();
-    private static final int keySize = 32;
-    private static native String genKeyPair(byte[] rnd);
+	private static final int keySize = 32;
+	private static native String genKeyPair(byte[] rnd);
 
 	public RNX25519KeysModule(ReactApplicationContext reactContext) {
 		super(reactContext);
